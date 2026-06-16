@@ -50,19 +50,31 @@ This script:
 
 ### Configure `.env`
 
-Open `.env` and fill in the required values before running:
+`install.ps1` creates `.env` from `.env.example` with **local-dev defaults that work
+out of the box** — including a pre-configured login. You do not need to edit anything
+to run the app locally. The only thing you must supply is a **Gurobi license**
+(`GRB_LICENSE_FILE` or the `GRB_WLS*` credentials) for the solver.
 
-| Variable             | Required | Notes |
-|----------------------|----------|-------|
-| `JWT_SECRET`         | Yes      | Long random string. Generate: `python -c "import secrets; print(secrets.token_urlsafe(48))"` |
-| `AUTH_USERNAME`      | Yes      | Login username (e.g. an email). |
-| `AUTH_PASSWORD_HASH` | Yes      | Generate: `python APIs/hash_password.py 'your-password'` |
-| `ALLOWED_ORIGINS`    | Prod     | Frontend URL(s), comma-separated. Never `*` in production. |
-| `MONGO_URI`          | Optional | Only needed for timing-plan history. |
-| Gurobi license vars  | Yes      | `GRB_LICENSE_FILE` or the `GRB_WLS*` credentials. |
+| Variable             | Default (local)        | Notes |
+|----------------------|------------------------|-------|
+| `FLASK_ENV`          | `development`          | Set `production` when deploying. |
+| `ALLOWED_ORIGINS`    | `http://localhost:5173`| Browser origins allowed to call the API. **Must include the frontend URL** or the GUI shows "cannot connect to server." |
+| `JWT_SECRET`         | dev value provided     | Regenerate for production. |
+| `AUTH_USERNAME`      | `admin@example.com`    | Default login user. |
+| `AUTH_PASSWORD_HASH` | hash of `admin`        | Default password is `admin`. |
+| `MONGO_URI`          | unset (disabled)       | Optional — only for timing-plan history. |
+| Gurobi license vars  | **you must set**       | `GRB_LICENSE_FILE` or the `GRB_WLS*` credentials. |
 
-Security defaults are safe out of the box (`FLASK_DEBUG=False`, localhost binding).
-**Never set `FLASK_DEBUG=True` in production** — it allows remote code execution.
+**Default login:** username `admin@example.com`, password `admin`.
+
+> ⚠️ The default login and `JWT_SECRET` are known, weak dev credentials. **Before
+> sharing or deploying the app**, set `FLASK_ENV=production`, point `ALLOWED_ORIGINS`
+> at the real frontend URL, and regenerate the secret and password:
+> ```powershell
+> python -c "import secrets; print(secrets.token_urlsafe(48))"   # -> JWT_SECRET
+> python APIs/hash_password.py 'your-new-password'               # -> AUTH_PASSWORD_HASH
+> ```
+> Never set `FLASK_DEBUG=True` in production — it allows remote code execution.
 
 ## Running the app
 
@@ -120,6 +132,29 @@ cd time-space-ui; npm run typecheck
 
 The `/optimize` round-trip (`gui_to_milp -> solver -> milp_to_gui`) is the most
 valuable integration surface.
+
+## Troubleshooting
+
+**GUI says "cannot connect to server" / "Could not reach the server" on login**
+The frontend (`localhost:5173`) talks to the backend at `localhost:5000`. Check, in order:
+1. **Is the backend running?** A separate window should show "Frontend API Server
+   Starting..." on port 5000. Open http://localhost:5000/health — it should respond.
+   If not, start it: `python APIs/frontendAPI.py`.
+2. **CORS** — `ALLOWED_ORIGINS` in `.env` must include the exact frontend URL
+   (`http://localhost:5173`). If it points anywhere else, the browser blocks the
+   request and the GUI reports it as "cannot connect." Fix the value and restart the
+   backend. (This was the most common first-run issue.)
+3. **Windows Firewall** may prompt the first time Python opens a port — allow it.
+4. After editing `.env`, **restart the backend** for changes to take effect.
+
+**Login rejected ("Invalid credentials")**
+Use the default `admin@example.com` / `admin`, or, if you changed them, make sure
+`AUTH_PASSWORD_HASH` was produced by `python APIs/hash_password.py 'password'`
+(plaintext passwords will never match).
+
+**Solver errors / optimization fails**
+Confirm a valid Gurobi license is configured in `.env` (`GRB_LICENSE_FILE` or the
+`GRB_WLS*` credentials).
 
 ## Further documentation
 
