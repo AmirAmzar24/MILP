@@ -1,0 +1,203 @@
+{
+  "Outbound_bandwidth_b": 0.2650602409638554,
+  "Inbound_bandwidth_b_bar": 0.2650602409638554,
+  "Outbound_bandwidth_actual": 29,
+  "Inbound_bandwidth_actual": 44,
+  "Outbound_attainability": 0.75,
+  "Inbound_attainability": 0.7,
+  "NewCycle": 159,
+  "Time_Outbound1-2": 58,
+  "Time_Inbound1-2": 58,
+  "Speed_Outbound1-2": 40,
+  "Speed_Inbound1-2": 40,
+  "Outbound_phi_1-2": 55,
+  "Inbound_phi_1-2": 62,
+  "Time_Outbound2-3": 50,
+  "Time_Inbound2-3": 34,
+  "Speed_Outbound2-3": 41,
+  "Speed_Inbound2-3": 60,
+  "Outbound_phi_2-3": 37,
+  "Inbound_phi_2-3": 7,
+  "offset_0": 0,
+  "offset_1": 87.0,
+  "offset_2": 94.0,
+  "Phase": [
+    [
+      [
+        73.0,
+        42.0,
+        23.0,
+        21.0
+      ],
+      [
+        73.0,
+        42.0,
+        23.0,
+        21.0
+      ]
+    ],
+    [
+      [
+        94.0,
+        0.0,
+        65.0,
+        0.0
+      ],
+      [
+        31.0,
+        63.0,
+        65.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        66.0,
+        53.0,
+        21.0,
+        19.0
+      ],
+      [
+        66.0,
+        53.0,
+        21.0,
+        19.0
+      ]
+    ]
+  ],
+  "PhaseRed": [
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        3,
+        0
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ]
+  ],
+  "PhaseAmber": [
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        3,
+        0
+      ],
+      [
+        3,
+        3,
+        3,
+        0
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ]
+  ],
+  "Phase_ID": [
+    [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        6,
+        5,
+        8,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        6,
+        5,
+        8,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        6,
+        5,
+        8,
+        7
+      ]
+    ]
+  ],
+  "new junction 1 is  pattern": 2,
+  "new junction 2 is  pattern": 2,
+  "new junction 3 is  pattern": 2
+}

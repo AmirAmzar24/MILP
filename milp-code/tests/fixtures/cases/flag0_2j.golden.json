@@ -1,0 +1,139 @@
+{
+  "Outbound_bandwidth_b": 0.22535464438398756,
+  "Inbound_bandwidth_b_bar": 0.22535464438398756,
+  "Outbound_bandwidth_actual": 26,
+  "Inbound_bandwidth_actual": 29,
+  "Outbound_attainability": 0.45,
+  "Inbound_attainability": 0.51,
+  "NewCycle": 166,
+  "Time_Outbound1-2": 31,
+  "Time_Inbound1-2": 31,
+  "Speed_Outbound1-2": 60,
+  "Speed_Inbound1-2": 60,
+  "Outbound_phi_1-2": -4,
+  "Inbound_phi_1-2": 3,
+  "offset_0": 0,
+  "offset_1": 160,
+  "Phase": [
+    [
+      [
+        62.0,
+        60.0,
+        23.0,
+        21.0
+      ],
+      [
+        62.0,
+        60.0,
+        23.0,
+        21.0
+      ]
+    ],
+    [
+      [
+        66.0,
+        60.0,
+        21.0,
+        19.0
+      ],
+      [
+        67.0,
+        59.0,
+        21.0,
+        19.0
+      ]
+    ]
+  ],
+  "PhaseRed": [
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ]
+  ],
+  "PhaseAmber": [
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ],
+    [
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ]
+  ],
+  "Phase_ID": [
+    [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        6,
+        5,
+        8,
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        6,
+        5,
+        8,
+        7
+      ]
+    ]
+  ],
+  "new junction 1 is  pattern": 1,
+  "new junction 2 is  pattern": 1
+}

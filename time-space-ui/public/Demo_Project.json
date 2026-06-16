@@ -1,0 +1,146 @@
+{
+  "optimization": {
+    "cycleRange": [
+      1,
+      200
+    ],
+    "defaultAmber_s": 3,
+    "defaultRed_s": 3,
+    "flag": 0,
+    "k": 0.9,
+    "masterJunctionId": "",
+    "speedChangeRange_kmh": [
+      -20,
+      20
+    ],
+    "speedRange_kmh": [
+      60,
+      90
+    ]
+  },
+  "timeStart": -10,
+  "timeEnd": 270,
+  "pps": 4,
+  "ppm": 0.485,
+  "travelOut_s": [
+    32,
+    41
+  ],
+  "travelIn_s": [
+    32,
+    41
+  ],
+  "queueOut_s": [
+    0,
+    15,
+    15
+  ],
+  "queueIn_s": [
+    15,
+    15,
+    0
+  ],
+  "queueVehiclesOut": 0,
+  "queueVehiclesIn": 0,
+  "queueTrajectoriesEnabled": false,
+  "saturationHeadway_s": 2,
+  "junctions": [
+    {
+      "id": "e229e788-0a25-4466-b8a5-bda5402fae07",
+      "name": "Jalan Elektron",
+      "position_m": 0,
+      "offset_s": 0,
+      "lost_s": 7,
+      "phases_s": [
+        25,
+        20,
+        20,
+        25
+      ],
+      "phaseNames": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "outboundIdx": [
+        1
+      ],
+      "inboundIdx": [
+        0
+      ],
+      "sideRoadOutboundIdx": [],
+      "sideRoadInboundIdx": [],
+      "enabled": true,
+      "ovlPhaseIndices": []
+    },
+    {
+      "id": "6368d6dc-64bf-4a9f-8a5c-6b6dc62a8b4e",
+      "name": "Jalan Kenanga",
+      "position_m": 350,
+      "offset_s": 32,
+      "lost_s": 7,
+      "phases_s": [
+        35,
+        10,
+        25,
+        20
+      ],
+      "phaseNames": [
+        "A1",
+        "OVL",
+        "A2",
+        "A3"
+      ],
+      "outboundIdx": [
+        0,
+        1
+      ],
+      "inboundIdx": [
+        1,
+        2
+      ],
+      "sideRoadOutboundIdx": [],
+      "sideRoadInboundIdx": [],
+      "enabled": true,
+      "ovlPhaseIndices": [
+        1
+      ]
+    },
+    {
+      "id": "ab5bb143-6956-4011-b6de-62b843276234",
+      "name": "Jalan Gangsa",
+      "position_m": 800,
+      "offset_s": 73,
+      "lost_s": 7,
+      "phases_s": [
+        25,
+        10,
+        20,
+        15,
+        20
+      ],
+      "phaseNames": [
+        "A1",
+        "OVL",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "outboundIdx": [
+        0,
+        1
+      ],
+      "inboundIdx": [
+        1,
+        2
+      ],
+      "sideRoadOutboundIdx": [],
+      "sideRoadInboundIdx": [],
+      "enabled": true,
+      "ovlPhaseIndices": [
+        1
+      ]
+    }
+  ]
+}

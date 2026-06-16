@@ -1,0 +1,44 @@
+{
+  "junctions": [
+    {
+      "id": "j1",
+      "name": "Junction 1 (symmetric)",
+      "position_m": 0,
+      "offset_s": 0,
+      "lost_s": 0,
+      "phases_s": [30, 20, 25, 15],
+      "outboundIdx": [0],
+      "inboundIdx": [1],
+      "ovlPhaseIndices": [],
+      "phaseNames": ["A1", "A2", "A3", "A4"],
+      "direction": "bidirectional"
+    },
+    {
+      "id": "j2",
+      "name": "Junction 2 (asymmetric outbound, T-intersection)",
+      "position_m": 500,
+      "offset_s": 0,
+      "lost_s": 0,
+      "phases_s": [20, 40, 30, 20],
+      "outboundIdx": [0, 1],
+      "inboundIdx": [1, 3],
+      "ovlPhaseIndices": [],
+      "phaseNames": ["A1", "A2", "A3", "A4"],
+      "direction": "bidirectional"
+    }
+  ],
+  "travelOut_s": [15],
+  "travelIn_s": [15],
+  "queueOut_s": [5, 5],
+  "queueIn_s": [5, 5],
+  "optimization": {
+    "cycleRange": [60, 120],
+    "speedRange_kmh": [40, 60],
+    "speedChangeRange_kmh": [-10, 10],
+    "k": 0.5,
+    "flag": 1,
+    "masterJunctionId": "j1",
+    "defaultAmber_s": 3,
+    "defaultRed_s": 2
+  }
+}
