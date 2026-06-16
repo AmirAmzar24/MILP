@@ -25,10 +25,11 @@ The optimization engine lives in `milp-code/` and is called directly by the back
 - **Node.js** v18+ — https://nodejs.org
 - **Python** 3.10+ (3.12 recommended) — https://www.python.org/downloads
   (check "Add Python to PATH" during install)
-- A **Gurobi** license for the MILP solver (local `.lic` file or Gurobi Cloud/WLS
-  credentials). See the Gurobi section in `.env`.
 - **MongoDB** is *optional* — the optimizer runs fine without it; it is only used to
   store timing-plan history.
+
+The MILP solver uses **PuLP + HiGHS**, which is open-source and bundled via
+`requirements.txt` — **no solver license is required.**
 
 ## First-time setup (Windows)
 
@@ -52,8 +53,7 @@ This script:
 
 `install.ps1` creates `.env` from `.env.example` with **local-dev defaults that work
 out of the box** — including a pre-configured login. You do not need to edit anything
-to run the app locally. The only thing you must supply is a **Gurobi license**
-(`GRB_LICENSE_FILE` or the `GRB_WLS*` credentials) for the solver.
+to run the app locally.
 
 | Variable             | Default (local)        | Notes |
 |----------------------|------------------------|-------|
@@ -63,7 +63,6 @@ to run the app locally. The only thing you must supply is a **Gurobi license**
 | `AUTH_USERNAME`      | `admin@example.com`    | Default login user. |
 | `AUTH_PASSWORD_HASH` | hash of `admin`        | Default password is `admin`. |
 | `MONGO_URI`          | unset (disabled)       | Optional — only for timing-plan history. |
-| Gurobi license vars  | **you must set**       | `GRB_LICENSE_FILE` or the `GRB_WLS*` credentials. |
 
 **Default login:** username `admin@example.com`, password `admin`.
 
@@ -153,8 +152,9 @@ Use the default `admin@example.com` / `admin`, or, if you changed them, make sur
 (plaintext passwords will never match).
 
 **Solver errors / optimization fails**
-Confirm a valid Gurobi license is configured in `.env` (`GRB_LICENSE_FILE` or the
-`GRB_WLS*` credentials).
+The solver (PuLP + HiGHS) is installed by `requirements.txt` and needs no license.
+If optimization fails, re-run `install.ps1` to ensure `PuLP`/`highspy` installed
+cleanly, and check the backend console for the error.
 
 ## Further documentation
 
