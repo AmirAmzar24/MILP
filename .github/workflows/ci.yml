@@ -1,0 +1,74 @@
+# CI — runs the test suites automatically on every push and pull request.
+# This is the same set of commands you run locally, just on a clean cloud machine.
+name: CI
+
+# WHEN this workflow runs:
+on:
+  push:
+    branches: [main, master]     # every push to your main line
+  pull_request:                  # and every PR, before it's merged
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # JOB 1: Python backend — installs deps and runs pytest (your 133 tests)
+  # ---------------------------------------------------------------------------
+  backend:
+    name: Backend tests (pytest)
+    runs-on: ubuntu-latest       # the fresh VM GitHub gives us
+
+    steps:
+      # Pull your repo's code onto the runner.
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      # Install the exact Python you use locally (3.12).
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip             # cache installed packages between runs = faster
+
+      # Install your backend dependencies from requirements.txt.
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+
+      # Run the exact command from your README.
+      - name: Run tests
+        run: python -m pytest APIs/tests milp-code/tests -q
+
+  # ---------------------------------------------------------------------------
+  # JOB 2: Frontend — type-checks and runs vitest (your 34 tests)
+  # Runs in PARALLEL with the backend job on a separate machine.
+  # ---------------------------------------------------------------------------
+  frontend:
+    name: Frontend tests (vitest + typecheck)
+    runs-on: ubuntu-latest
+
+    # 'defaults' saves us repeating the subfolder on every step.
+    defaults:
+      run:
+        working-directory: time-space-ui
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: time-space-ui/package-lock.json
+
+      # 'npm ci' installs EXACTLY what's in package-lock.json — reproducible.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Run tests
+        run: npm test
