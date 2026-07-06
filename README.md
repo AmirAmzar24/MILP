@@ -1,5 +1,7 @@
 # Time-Space UI
 
+[![CI](https://github.com/AmirAmzar24/MILP/actions/workflows/ci.yml/badge.svg)](https://github.com/AmirAmzar24/MILP/actions/workflows/ci.yml)
+
 Traffic signal optimization tool for coordinated arterial corridors. Users define
 junction phase data; the system finds optimal cycle lengths and offsets to maximize
 green-band bandwidth through the corridor.
