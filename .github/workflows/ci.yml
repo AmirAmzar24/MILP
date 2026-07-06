@@ -70,5 +70,13 @@ jobs:
       - name: Type-check
         run: npm run typecheck
 
+      # Lint is NON-BLOCKING for now: the codebase has ~30 pre-existing lint
+      # errors. 'continue-on-error' lets the step report them (you'll see a
+      # yellow ! instead of a red X) without failing the whole build. Fix the
+      # errors incrementally, then delete this line to make lint a hard gate.
+      - name: Lint (non-blocking)
+        run: npm run lint
+        continue-on-error: true
+
       - name: Run tests
         run: npm test
