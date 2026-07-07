@@ -108,7 +108,7 @@ Then open **http://localhost:5173** in your browser.
 AppV2.tsx
   -> POST /optimize (GUI JSON)
   -> api_translator.gui_to_milp()
-  -> milp2FINAL.callback()   [PuLP + HiGHS / Gurobi solver]
+  -> milp2FINAL.callback()   [PuLP + HiGHS solver]
   -> api_translator.milp_to_gui()
   -> AppV2.tsx (renders updated diagram + metrics)
 ```
@@ -160,6 +160,8 @@ cleanly, and check the backend console for the error.
 
 ## Further documentation
 
+- [`docs/HANDOVER.md`](docs/HANDOVER.md) — **new engineer? start here.** Onboarding walkthrough, roadmap, ownership.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — data flow, module map, and gotchas (deeper than the pipeline above)
 - [`CONTEXT.md`](CONTEXT.md) — domain glossary
 - [`docs/SECURITY.md`](docs/SECURITY.md) — security model and deployment guidance
 - [`docs/adr/`](docs/adr/) — architecture decision records
